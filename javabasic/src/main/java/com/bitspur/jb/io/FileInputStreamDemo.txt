@@ -1,0 +1,3 @@
+this is the content in text 1
+I will read the data from you 
+and print out in console
