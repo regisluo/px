@@ -1,0 +1,71 @@
+<div ng-init="initStu()">
+    <h2>Student Add</h2>
+    <form name="form" novalidate>
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" name="sName" ng-model="student.name" required>
+            <!--<span ng-show="form.sName.$invalid && form.sName.$dirty">Name is required</span>-->
+            <span ng-show="form.sName.$dirty && form.sName.$error.required">Name is required</span>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" class="form-control" ng-model="student.age" name="age" ng-min="1" ng-max="120">
+            <span ng-show="form.age.$dirty && form.age.$error.min">Age is too small</span>
+            <span ng-show="form.age.$dirty && form.age.$error.max">Age is too large</span>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" value='M' ng-model="student.gender" name="gender">
+                    Male
+                </label>
+                <label class="radio-inline">
+                        <input type="radio" value='F' ng-model="student.gender" name="gender">
+                        Female
+                </label>
+                <label class="radio-inline">
+                            <input type="radio" value='X' ng-model="student.gender" name="gender" >
+                            Middle
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" ng-model="student.email" type="email" name="email" required><!--ng-pattern=""-->
+            <span ng-show="form.email.$dirty && form.email.$invalid">Email is not valid</span>
+           <!-- <span ng-show="form.email.$dirty && form.email.$error.pattern">Email is not valid</span>-->
+        </div>
+        <div class="form-group">
+            <label>Birthday</label>
+            <input class="form-control" ng-model="student.birthday" type="date">
+        </div>
+        <div class="form-group">
+            <label>Nationality</label>
+            <select class="form-control" ng-model="student.nationality">
+                    <option value="CN">China</option>
+                    <option value="AU">Australia</option>
+                    <option value="US">USA</option>
+                    <option value="UK">Unite Kindom</option>
+                    <option value="JP">Japanese</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Interests</label>
+            <div>
+                <label class="checkbox-inline">
+                        <input type="checkbox" name="interest" ng-model="student.interests.reading">Reading
+                    </label>
+                <label class="checkbox-inline">
+                        <input type="checkbox" name="interest" ng-model="student.interests.swimming">Swimming
+                    </label>
+                <label class="checkbox-inline">
+                        <input type="checkbox" name="interest" ng-model="student.interests.climbing">Climbing
+                    </label>
+            </div>
+        </div>
+        <!--<button ng-click="save(form.$valid)" class="btn btn-primary" type="submit" ng-if="student.id==undefined" >Save</button>--> <!--ng-disabled="form.$invalid"-->
+        <button ng-click="saveWithNgResoure(form.$valid)" class="btn btn-primary" type="submit" ng-if="student.id==undefined">SaveWithNgResoure</button>
+       <button ng-click="update(form.$valid)" class="btn btn-primary" type="submit" ng-if="student.id>0" >Update</button>
+    </form>
+</div>

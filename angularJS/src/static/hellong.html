@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+	<title>Hello NG</title>
+</head>
+
+<body>
+
+
+	<div>
+		<input type="text" id="input1" oninput="refreshP1()">
+		<p id="p1"></p>
+	</div>
+	<br>
+	<div>
+		<!-- angular js  -->
+		<input type="text" ng-model="myInput">
+		<p>{{myInput}}</p>
+	</div>
+
+
+<script type="text/javascript">
+	function refreshP1(){
+		var p1 = document.getElementById("p1");
+		var input = document.getElementById("input1");
+		p1.innerHTML = input.value;
+
+	}
+</script>
+</body>
+
+</html>

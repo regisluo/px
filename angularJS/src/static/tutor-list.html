@@ -1,0 +1,40 @@
+<div ng-controller="tutor.controller" ng-init="getAll()">
+    <h2>Tutor List</h2>
+    <div class="form-inline">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" ng-model="search_name">
+        </div>
+         <div class="form-group">
+            <label>Age</label>
+            <input type="text" class="form-control" ng-model="search_age">
+        </div>
+         <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" ng-model="search_email">
+        </div>
+    </div>
+    <br>
+    <table class="table table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="tutor in tutors | filter:{name:search_name} | 
+            filter:{age:search_age} | 
+            filter:{email:search_email}  ">
+            <td>{{tutor.name}}</td>
+            <td>{{tutor.age}}</td>
+            <td>{{tutor.email}}</td>
+            <td>{{tutor.mobile}}</td>
+            <td>{{tutor.address}}</td>
+            <td><a class="btn btn-primary" href="#/tutor-edit/{{tutor.id}}">Edit</a>
+            <button class="btn btn-danger" ng-click="delete(tutor.id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

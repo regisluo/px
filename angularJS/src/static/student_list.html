@@ -1,0 +1,51 @@
+<h2>Student List</h2>
+<br>
+<!--<div class="form-inline">
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" ng-model="search_name">
+    </div>
+     <div class="form-group">
+        <label>Age</label>
+        <input type="text" class="form-control" ng-model="search_age">
+    </div>
+     <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" ng-model="search_email">
+    </div>
+</div>
+<br>-->
+<table class="table table-hover" ng-init="getAllStudentsWithngResource()">
+    <!--getAllStudents()-->
+    <tr>
+        <th>Name
+            <input type="text" class="form-control" ng-model="search_name" size="10">
+        </th>
+        <th>Age
+            <input type="text" class="form-control" ng-model="search_age" size="10">
+        </th>
+        <th>Gender</th>
+        <th>Email
+            <input type="text" class="form-control" ng-model="search_email" size="10">
+        </th>
+        <th>Birthday</th>
+        <th>Nationality</th>
+        <th>Interests</th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="stu in students | filter:{name:search_name} | 
+        filter:{age:search_age} | 
+        filter:{email:search_email}  ">
+        <td>{{stu.name}}</td>
+        <td>{{stu.age}}</td>
+        <td>{{stu.gender}}</td>
+        <td>{{stu.email}}</td>
+        <td>{{stu.birthday | date:'dd/MM/yyyy'}}</td>
+        <td>{{stu.nationality}}</td>
+        <td>{{stu.interests | interestFilter}}</td>
+        <td>
+            <a class="btn btn-primary" href="#/student-edit/{{stu.id}}">Edit</a>
+            <button class="btn btn-danger" ng-click="delete(stu.id)">Delete</button>
+        </td>
+    </tr>
+</table>

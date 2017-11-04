@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="scopeDemo">
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+	<title>Scope Demo</title>
+</head>
+
+<body ng-controller="scopeDemoCtrl">
+
+	<!-- <p>{{msg}}</p> -->
+
+	<div ng-controller="controller1">
+		<div ng-controller="controller2">
+			{{info}}
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var scopeDemoModule = angular.module('scopeDemo', []);
+
+
+		scopeDemoModule.controller('controller1',function($rootScope,$scope){
+			$rootScope.infoRoot = 'infoRoot';
+			$scope.info1 = 'info1';
+		});
+
+		scopeDemoModule.controller('controller2',function($rootScope,$scope){
+			$scope.info = $rootScope.infoRoot + ' ' + 
+				$scope.info1 + ' ' + 'info2';
+		});
+
+
+
+		// way 1
+		// scopeDemoModule.controller('scopeDemoCtrl', function($scope){
+		// 	$scope.msg = 'hello ng';
+		// } );
+
+		// way 2
+		// scopeDemoModule.controller('scopeDemoCtrl', ['$scope','$rootScope',function(s,r){
+		// 	s.msg = 'hello ng';
+		// }] );
+
+		// way 3
+		scopeDemoModule.controller('scopeDemoCtrl',fun);
+		function fun($scope){
+			$scope.msg = 'way 3';
+		}
+
+	</script>
+</body>
+
+</html>

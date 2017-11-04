@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myng">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- <base href="/"> -->
+	<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script type="text/javascript" src="./bower_components/moment/moment.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-moment/angular-moment.js"></script>
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<script type="text/javascript" src="../src/index.model.js"></script>
+	<title></title>
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-default">
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#/">Leaning Management</a>
+			</div>
+			<ul class="nav navbar-nav navbar-left">
+			<!--	<li><a href="#/page1">page1</a></li>
+				 <li><a href="#/page2/0">page2</a></li>
+				<li><a href="#/expression">Expression</a></li>
+				<li><a href="#/directive">Directives</a></li>
+				<li><a href="#/filters">Filters</a></li>-->
+
+				<li><a href="#/student-edit">Add Student</a></li>
+				<li><a href="#/student-list">Student List</a></li>
+				<li><a href="#/tutor-edit">Add Tutuor</a></li>
+				<li><a href="#/tutor-list">Tutor List</a></li>
+
+
+			</ul>
+		</nav>
+	</header>
+	<div class="container">
+		<div class="row">
+			<ng-view></ng-view>
+		</div>
+	</div>
+
+</body>
+
+</html>
