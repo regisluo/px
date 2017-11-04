@@ -1,0 +1,24 @@
+/*.p1{
+    background-color: @red;
+}*/
+.container {
+  background-color: lightblue;
+}
+.container h1 {
+  color: red;
+  font-size: 4em;
+}
+.container p {
+  background-color: yellow;
+}
+.p1 {
+  color: red;
+}
+.p2 {
+  background: #64d9c0;
+  color: red;
+}
+.p3 {
+  background: lightblue;
+  color: red;
+}

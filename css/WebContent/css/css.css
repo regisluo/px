@@ -1,0 +1,133 @@
+.div1 {
+    background-color: lightblue;
+   background-image: url(../img/1.png);
+   background-repeat: no-repeat;
+
+    font-family: "Times New Roman";
+ 	font-style: italic;
+ 	font-size: 2.5em; /* 16px * 2.5em = 40px*/
+    font-weight: bold;
+     
+    margin-top: 30px;
+    width: 500px;
+    height: 400px;
+}
+
+.borderDemo {
+    border-style: solid;
+	border-width: 5px;
+    border-color: red green blue yellow;
+    border-radius: 25px;
+    margin-top: 30px;
+    padding-left: 30px;
+}
+
+.aStyle{
+    text-decoration: none;
+}
+
+.aStyle:link {
+	background-color: orange;
+	color: white;
+	padding: 14px 20px;
+	text-align: center; 
+	text-decoration: none;
+}
+
+.aStyle:visited {
+	background-color:blue;
+	color: white;
+	padding: 14px 20px;
+	text-align: center; 
+	text-decoration: none;
+}
+.aStyle:hover, .aStyle:active {
+	background-color: red;
+}
+
+.ulStyle li{
+    list-style-type: square;/* none, cycle, ... */
+    display: inline;
+}
+
+table {
+   	border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    color: darkblue;
+}
+
+tr {
+	height: 50px;
+    text-align: left;
+}
+
+tr:hover {background-color:lightskyblue}
+
+th,td {
+    vertical-align: center;
+    padding: 15px;
+    border: 1px solid black;
+}   
+.displayNoneStyle{
+    display: none;
+}
+
+.invisableStyle{
+    visibility: hidden;
+}
+.overflowStyle{
+    width:400px;
+    height: 300px;
+    background-color: lightcyan;
+    border: 1px solid black;
+    overflow: scroll;
+    
+}
+
+.div2 {
+   float: left; 
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    border: 3px solid #73AD21;
+}
+
+.div3 {
+    border: 1px solid red;
+     width: 500px;
+    height: 400px;
+    clear: left; 
+}
+
+.comStyle p{
+    background-color: lightcyan;
+}
+
+.comStyle > p{
+    background-color: lightcoral;
+}
+
+.comStyle ~ p{
+    background-color: blue;
+}
+.comStyle + p{
+    background-color:yellow;
+}
+.p4Style::first-line{
+    background-color:red;
+}
+
+.p4Style::first-letter{
+    font-size: 10em;
+    font-style: bolder;
+}
+
+[class|="top"]{
+    background-color: lightcoral;
+}
+
+[class^="top"]{
+    background-color:yellow;
+}
+

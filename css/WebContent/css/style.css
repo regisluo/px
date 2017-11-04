@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+.demoDiv {
+	position: fixed;
+	bottom: 0;
+	border: 1px solid red;
+	width: 100%;
+}
+.indexul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: lightyellow;
+}
+
+.indexul li {
+	float: left;
+	width: 12em;
+	
+}
+
+.indexul li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.indexul li a:hover {
+	background-color: #333;
+	color: white;
+}
+ .container {
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        header,
+        footer {
+            text-align: center;
+            color: white;
+            background-color: grey;
+            font-size: 1.6em;
+        }
+
+        nav {
+            max-width: 200px;
+            float: left;
+            padding: 1em;
+            margin: 0;
+        }
+
+        article {
+            margin-left: 13em;
+            padding: 1em;
+            border-left: 1px solid black;
+        }
