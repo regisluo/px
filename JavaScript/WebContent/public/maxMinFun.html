@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+	<br/>
+	<p>please input multiple numbers seperated by comma:</p>
+	<input type="text" id="input1"><br/><br/>
+	<button onclick="showMax()" class="btn btn-primary">get max</button>&nbsp;
+	<button onclick="showMin()" class="btn btn-warning">get min</button>
+	<p id="result" class="bg-success"></p>
+	<script>
+		function showMax() {
+			var args = document.getElementById("input1").value;
+			var max = getMax(args);
+			document.getElementById("result").innerHTML = "The max value is: " + max;
+		}
+
+		function showMin() {
+			var args = document.getElementById("input1").value;
+			var min = getMin(args);
+			document.getElementById("result").innerHTML = "The min value is: " + min;
+		}
+
+		function getMax(params) {
+			var max = 0;
+			if (params != null && String(params).trim().length > 0) {
+				params = String(params).split(",");
+			}
+			var max = params[0];
+			for (var i = 1; i < params.length; i++) {
+				if (Number(max) < Number(params[i])) {
+					max = params[i];
+				}
+			}
+			return max;
+		}
+
+		function getMin(params) {
+			var min = 0;
+			if (params != null && String(params).trim().length > 0) {
+				params = String(params).split(",");
+			}
+			min = params[0];
+			for (var i = 1; i < params.length; i++) {
+				if (Number(min) > Number(params[i])) {
+					min = params[i];
+				}
+			}
+			return min;
+		}
+	</script>
+</body>
+
+</html>

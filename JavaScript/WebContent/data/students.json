@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Jim",
+        "age": 20,
+        "gender": "M",
+        "email": "jim@test.com",
+        "birthday": "03/10/1992",
+        "nationality": "chinese",
+        "interests": [
+            "reading",
+            "music"
+        ],
+        "introduction": "Jim is a good boy"
+    },
+    {
+        "id": 2,
+        "name": "Lucy",
+        "age": 23,
+        "gender": "F",
+        "email": "lucy@test.com",
+        "birthday": "02/12/1989",
+        "nationality": "english",
+        "interests": [
+            "reading",
+            "extreme sports"
+        ],
+        "introduction": "Lucy likes Tom"
+    },
+    {
+        "id": 3,
+        "name": "AAA",
+        "age": 20,
+        "gender": "M",
+        "email": "jim@test.com",
+        "birthday": "03/10/1992",
+        "nationality": "chinese",
+        "interests": [
+            "reading",
+            "music"
+        ],
+        "introduction": "AAA is a good boy"
+    }
+]

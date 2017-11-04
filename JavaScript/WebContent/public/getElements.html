@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js" ></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title>This is page title</title>
+</head>
+
+<body>
+	<p id="p1" class="cp1">content in p1</p>
+	<p id="p2" class="cp2">content in p2</p>
+	<p id="p3" class="cp3">content in p3</p>
+	<p id="p4" class="cp4">content in p4</p>
+	
+	<script>
+	
+	var p1 = document.getElementById("p1");
+	p1.innerHTML = "changed content in p1";
+
+	var ps = document.getElementsByTagName("p");
+	ps[1].innerHTML = "p2 changed";
+	document.write(ps.length);
+
+	var ps2 = document.getElementsByClassName("cp3");
+	ps2[0].innerHTML = "p3 changed";
+
+	document.write(document.title);
+
+	</script>
+</body>
+
+</html>

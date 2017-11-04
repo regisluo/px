@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+	<div class="container" id="con1">
+		<button onclick="modifyTom()" class="btn btn-info">modify Tom</button>
+		<button onclick="addStudent()" class="btn btn-success">add student</button>
+		<button onclick="showStudents()" class="btn btn-default">show students</button>
+	</div>
+	<script>
+		var students = [{
+			name: "Jim",
+			age: "20",
+			birthday: "1992-10-10"
+		},
+		{
+			name: "Tom",
+			age: "21",
+			birthday: "1991-10-10"
+		}];
+
+function modifyTom(){
+	var tom = students[1];
+	tom.age = '20';
+	tom.birthday = '1992-10-10';
+}
+
+		function addStudent() {
+			var name = "Alan_" + Math.floor(Math.random() * 100);
+			var stud = {
+				name: name,
+				age: "20",
+				birthday: "1993-09-09"
+			};
+			students.push(stud);
+		}
+		function showStudents() {
+			table = document.getElementById("studentsTable");
+			if (table != null) {
+				document.getElementById("con1").removeChild(table);
+			}
+
+
+			table = document.createElement("table");
+			table.setAttribute("id", "studentsTable");
+			table.setAttribute("class", "table");
+			var th1 = document.createElement("th");
+			th1.innerHTML = "Name";
+			var th2 = document.createElement("th");
+			th2.innerHTML = "Age";
+			var th3 = document.createElement("th");
+			th3.innerHTML = "Birthday";
+
+			var trh = document.createElement("tr");
+			trh.appendChild(th1);
+			trh.appendChild(th2);
+			trh.appendChild(th3);
+			table.appendChild(trh);
+
+			for (var i = 0; i < students.length; i++) {
+				var td1 = document.createElement("td");
+				td1.innerHTML = students[i].name;
+				var td2 = document.createElement("td");
+				td2.innerHTML = students[i].age;
+				var td3 = document.createElement("td");
+				td3.innerHTML = students[i].birthday;
+
+				var tr = document.createElement("tr");
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				table.appendChild(tr);
+			}
+
+			document.getElementById("con1").appendChild(table);
+		}
+
+		console.log(JSON.stringify(students));
+		for (var i = 0; i < students.length; i++) {
+			for (p in students[i]) {
+				console.log(students[i][p]);
+			}
+		}
+	</script>
+</body>
+
+</html>

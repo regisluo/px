@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title>Student Info Management</title>
+</head>
+
+<body onload="getAllStudents()" class="container">
+	<div id="div0">
+		<h3>Welcome to Student Info Management Page</h3>
+		<a href='./studentAdd.html'><button>Add Student</button></a>
+	</div>
+	<div id="div1"></div>
+
+	<script>
+		var students = {};
+		function getAllStudents() {
+			xhttp.open(method, url, true);
+			xhttp.send();
+
+			xhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					if (this.responseText && this.responseText.length > 0) {
+						students = JSON.parse(this.responseText);
+						console.log(students);
+						updateTable(students);
+					}
+				}
+			}
+
+		}
+
+		function updateTable(students) {
+
+			var tr1 = "<tr>";
+			var tr2 = "</tr>";
+			var td1 = "<td>";
+			var td2 = "</td>";
+
+			var body = "<table id='studentsTable' class='table table-striped'>" +
+				"<tr>" +
+				"<th>ID</th>" +
+				"<th>Name</th>" +
+				"<th>Age</th>" +
+				"<th>Gender</th>" +
+				"<th>Email</th>" +
+				"<th>Birthday</th>" +
+				"<th>Nationality</th>" +
+				"<th>Interests</th>" +
+				"<th>Summary</th>" +
+				"<th>Operation</th>" +
+				"</tr>";
+			for (var i = 0; i < students.length; i++) {
+				var tr = tr1 +
+					td1 + students[i]['id'] + td2 +
+					td1 + students[i]['name'] + td2 +
+					td1 + students[i]['age'] + td2 +
+					td1 + students[i]['gender'] + td2 +
+					td1 + students[i]['email'] + td2 +
+					td1 + students[i]['birthday'] + td2 +
+					td1 + students[i]['nationality'] + td2 +
+					td1 + (students[i]['interests']).toString() + td2 +
+					td1 + students[i]['introduction'] + td2 +
+					td1 + "<a><button>Update</button></a>&nbsp;<a><button onclick='deleteStu(" +
+					students[i]['id'] + ")'>" +
+					"Delete</button></a>" + td2 +
+					tr2;
+				body += tr;
+			}
+			body += "</table>";
+			var div1 = document.getElementById("div1");
+			console.log(body);
+			div1.innerHTML = body;
+		}
+
+		function deleteStu(id) {
+			var conf = confirm("Are you sure to delete student: " + id);
+			if (conf) {
+				var stu = { "id": id };
+				studentOperation(stu, "D");
+				location.reload();
+			}
+
+		}
+	</script>
+</body>
+
+</html>

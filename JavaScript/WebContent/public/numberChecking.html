@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<p>Please input a number between 0 and 10:</p>
+
+	<input id="input1" type="text">
+	<button type="button" onclick="validate()">Test Input</button>
+
+	<p id="message"></p>
+
+	<script>
+		function validate() {
+			var message, x;
+			message = document.getElementById("message");
+			message.innerHTML = "";
+			x = document.getElementById("input1").value;
+			try {
+				if (x == "") throw " is empty";
+				if (isNaN(x)) throw " is not a number";
+				x = Number(x);
+				if (x > 10) throw " is too high";
+				if (x < 0) throw " is too low";
+				message.innerHTML = "Valid Number: " + x;
+			}
+			catch (err) {
+				message.innerHTML = "Input " + x + err;
+			}
+			finally {
+				document.getElementById("input1").value = "";
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+	<button onclick="createSelect()">create select with multiple options</button>
+
+	<script>
+		function createSelect() {
+			var s = document.createElement("select");
+			document.body.appendChild(s);
+
+			var o1 = document.createElement("option");
+			o1.setAttribute("value", "1");
+			o1.appendChild(document.createTextNode("one"));
+			s.appendChild(o1);
+
+			var o2 = document.createElement("option");
+			o2.appendChild(document.createTextNode("two"));
+			s.appendChild(o2);
+
+			var o3 = document.createElement("option");
+			o3.appendChild(document.createTextNode("three"));
+			s.appendChild(o3);
+
+			var before2 = document.createElement("option");
+			before2.appendChild(document.createTextNode("before two"));
+			o2.parentNode.insertBefore(before2, o2);
+
+			var replace3 = document.createElement("option");
+			replace3.appendChild(document.createTextNode("replace3"));
+			o3.parentNode.replaceChild(replace3, o3);
+
+			var children = s.childNodes;
+
+			for (var i = 0; i < children.length; i++) {
+				console.log(children[i].getAttribute("value"));
+			}
+
+
+
+		}
+	</script>
+</body>
+
+</html>

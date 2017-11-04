@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js" ></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+	
+	
+	<script>
+	function fun(a,b,c,d,e){
+		/*console.log(a);
+		console.log(b);
+		console.log(c);
+		console.log(d);
+		console.log(e);
+		console.log('=================');*/
+
+		for(var i=0;i<arguments.length;i++){
+			console.log(arguments[i]);
+		}
+		console.log('=================');
+	}
+
+	fun(1,2,3,4,5,6);
+	fun(1,2,3,4,5);
+	fun(1,2,3,4);
+	fun(1,2,3);
+	fun(1,2);
+	fun(1);
+	fun();
+
+	</script>
+</body>
+
+</html>

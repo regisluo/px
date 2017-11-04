@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<title></title>
+</head>
+
+<body>
+	<p>Please input number 1-10 for english translation:</p>
+	<input type="text" id="input1"><button onclick="tran()">translate</button>
+	<p id="eng"></p>
+
+	<script>
+		function tran() {
+			var input = document.getElementById("input1").value;
+			var output = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
+
+
+			switch (input) {
+				//case '0': print(output[0]); break;
+				case '1': print(output[1]); break;
+				case '2': print(output[2]); break;
+				case '3': print(output[3]); break;
+				case '4': print(output[4]); break;
+				case '5': print(output[5]); break;
+				case '6': print(output[6]); break;
+				case '7': print(output[7]); break;
+				case '8': print(output[8]); break;
+				case '9': print(output[9]); break;
+				case '10': print(output[10]); break;
+				case 'q': print("Thanks"); break;
+				default: print("Not support");
+
+			}
+		};
+
+		function print(output) {
+			document.getElementById("eng").innerHTML = output;
+		};
+	</script>
+</body>
+
+</html>

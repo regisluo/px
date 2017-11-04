@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>node1</title>
+	</head>
+	<body>
+
+		<button onclick="myFunction()">
+			Creat a select with multiple options
+		</button>
+
+		<script>
+			function myFunction() {
+				var x = document.createElement("SELECT");
+				x.setAttribute("id", "demoSelect");
+				document.body.appendChild(x);
+
+				var o1 = document.createElement("option");
+				o1.setAttribute("value", "1");
+				o1.appendChild(document.createTextNode("one"));
+				x.appendChild(o1);
+
+				var o2 = document.createElement("option");
+				o2.setAttribute("value", "2");
+				o2.appendChild(document.createTextNode("two"));
+				x.appendChild(o2);
+
+				var o3 = document.createElement("option");
+				o3.setAttribute("value", "3");
+				o3.appendChild(document.createTextNode("three"));
+				x.appendChild(o3);
+				
+				var before2 = document.createElement("option");
+				before2.setAttribute("value", "b2");
+				before2.appendChild(document.createTextNode("beforeTwo"));
+				o2.parentNode.insertBefore(before2, o2);
+				
+				var replace3 = document.createElement("option");
+				replace3.setAttribute("value", "r3");
+				replace3.appendChild(document.createTextNode("replaceThree"));
+				o3.parentNode.replaceChild(replace3, o3);
+				
+
+			}
+		</script>
+	</body>
+</html>

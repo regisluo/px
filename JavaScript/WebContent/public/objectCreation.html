@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+	<div id="div1">
+		<button onclick="showStudent()">show students</button>
+
+	</div>
+	<script>
+		var table = null;
+		var students = [{
+			name: "Jim",
+			age: "20",
+			birthday: "1992-10-10"
+		},
+		{
+			name: "Tom",
+			age: "21",
+			birthday: "1991-10-10"
+		}];
+
+		function showStudent() {
+
+			var div1 = document.getElementById("div1");
+			var table = document.getElementById("studentTable");
+			if (table) {
+				div1.removeChild(table);
+			}
+
+			table = document.createElement("table");
+			table.setAttribute("class", "table");
+			table.setAttribute("id", "studentTable");
+
+			var tr1 = document.createElement("tr");
+			var th1 = document.createElement("th");
+			th1.innerHTML = "Name";
+			var th2 = document.createElement("th");
+			th2.innerHTML = "Age";
+			var th3 = document.createElement("th");
+			th3.innerHTML = "Birthday";
+			tr1.appendChild(th1);
+			tr1.appendChild(th2);
+			tr1.appendChild(th3);
+			table.appendChild(tr1);
+
+			//add student info
+			for (var i = 0; i < students.length; i++) {
+				var stu = students[i];
+				var tr2 = document.createElement("tr");
+				for (prop in stu) {
+					var td = document.createElement("td");
+					td.innerHTML = stu[prop];
+					tr2.appendChild(td);
+				}
+				table.appendChild(tr2);
+			}
+
+			div1.appendChild(table);
+		}
+	</script>
+</body>
+
+</html>

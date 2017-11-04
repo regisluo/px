@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title>Add Student</title>
+</head>
+
+<body>
+	<div class="container">
+		<h2>Add Student Infomation</h2>
+		<div class="form">
+			<div class="form-group">
+				<label for="userName">Name</label>
+				<input type="text" class="form-control" id="userName" placeholder="Name" required>
+			</div>
+			<div class="form-group">
+				<label for="userAge">Age</label>
+				<input type="number" class="form-control" id="userAge" placeholder="Age" max="150" min="0">
+			</div>
+			<div class="form-group">
+				<label for="genders">Gender</label>
+				<div id="genders">
+					<label class="radio-inline">
+    <input type="radio" name="genderRadios" id="genderRadios1" value="M" checked>
+    Male
+  </label>
+
+
+					<label class="radio-inline">
+    <input type="radio" name="genderRadios" id="genderRadios2" value="F">
+    Female
+  </label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email" placeholder="Email">
+			</div>
+			<div class="form-group">
+				<label for="birthday">Birthday</label>
+				<input type="date" class="form-control" id="birthday" placeholder="Birthday">
+			</div>
+			<div class="form-group">
+				<label for="country">Your Country</label>
+				<select class="form-control" id="country">
+				<option value="1">CN</option>
+				<option value="2">UK</option>
+				<option value="3">AU</option>
+				<option value="4">US</option>
+				<option value="5">JP</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="interests">Interests</label>
+				<div id="interests">
+					<label class="checkbox-inline">
+  <input type="checkbox" name="interests" id="inlineCheckbox1" value="Reading"> Reading
+</label>
+					<label class="checkbox-inline">
+  <input type="checkbox"  name="interests"  id="inlineCheckbox2" value="Travelling"> Travelling
+</label>
+					<label class="checkbox-inline">
+  <input type="checkbox"  name="interests"  id="inlineCheckbox3" value="Swimming"> Swimming
+</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="intro">Introduction</label>
+				<textarea class="form-control" id="intro" placeholder="Short description"></textarea>
+			</div>
+
+			<button class="btn btn-default" onclick="addStudent()">Submit</button>
+		</div>
+	</div>
+	<script>
+		function addStudent() {
+			console.log("start adding student...");
+			var stu = {};
+			stu.name = document.getElementById("userName").value;
+			stu.age = document.getElementById("userAge").value;
+			stu.gender = document.querySelector('input[name="genderRadios"]:checked').value;
+
+			stu.email = document.getElementById("email").value;
+			stu.birthday = document.getElementById("birthday").value;
+
+			var e = document.getElementById("country");
+			stu.nationality = e.options[e.selectedIndex].value;
+
+			var cboxes = document.getElementsByName('interests');
+			var ints = [];
+			for (var i = 0; i < cboxes.length; i++) {
+				console.log("ints: "+cboxes[i].checked);
+				if (cboxes[i].checked) {
+					ints.push(cboxes[i].value);
+				}
+			}
+			stu.interests = ints;
+			stu.introduction = document.getElementById("intro").value;
+			console.log(stu);
+			studentOperation(stu,"A");
+			console.log("finish adding student...");
+			alert("Added success!");
+			window.location.href = "./studentIndex.html";
+		}
+	</script>
+</body>
+
+</html>

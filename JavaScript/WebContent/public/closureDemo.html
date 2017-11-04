@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js" ></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title>Closure Demo</title>
+</head>
+
+<body>
+	
+	
+	<script>
+	
+	function f1(){
+		var n = 1;
+		
+		add = function(){
+			n += 1;
+		}
+
+		function f2(){
+			var n2 = 100;
+			alert(n);
+		}
+		return f2;
+	}
+
+	var result = f1();
+	result(); //1
+	add();
+	result(); //1? 2?
+
+	</script>
+</body>
+
+</html>

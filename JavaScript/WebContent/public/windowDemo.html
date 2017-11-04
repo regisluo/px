@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js" ></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+
+	<button onclick="showConfirm()" >show Confirm</button>
+	<button onclick="showPrompt()" >show Prompt</button>
+	<p id="name"></p>
+
+	<script>
+		var path = window.location.href;
+		console.log(path);
+document.getElementById("input1").value;
+		function showConfirm(){
+			var conf = confirm('Are you sure?');
+			console.log(conf);
+		}
+var v;
+var V;
+console.log(v);
+		function showPrompt(){
+			var name = prompt("what is your name?","Mr. unknown");
+			document.getElementById("name").innerHTML = "Welcome "+ name;
+
+		}
+
+	</script>
+</body>
+
+</html>

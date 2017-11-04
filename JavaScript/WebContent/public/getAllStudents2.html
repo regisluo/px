@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/app.js" ></script>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title></title>
+</head>
+
+<body>
+	
+	
+	<script>
+	var url = "http://localhost:8888/students/";
+	var method = "GET";
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.open(method, url, true);
+	xhttp.send();
+
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log("responseText:\n " + this.responseText);
+		}
+	}
+	</script>
+</body>
+
+</html>
