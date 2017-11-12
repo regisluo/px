@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -28,7 +28,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.bitspur.springboot.repository", entityManagerFactoryRef = "entityManagerFactory", transactionManagerRef = "transactionManager")
+// @EnableJpaRepositories(basePackages = "com.bitspur.springboot.repository",
+// entityManagerFactoryRef = "entityManagerFactory", transactionManagerRef =
+// "transactionManager")
 @EnableTransactionManagement
 public class JPAConfig {
 
@@ -113,6 +115,12 @@ public class JPAConfig {
 	public JdbcTemplate getJdbcTemplate() {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource());
 		return jdbcTemplate;
+	}
+
+	@Bean
+	public NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
+		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource());
+		return namedParameterJdbcTemplate;
 	}
 
 }
