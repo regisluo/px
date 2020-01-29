@@ -20,6 +20,7 @@ public class DeadLockDemo {
 					synchronized (r2) {
 						System.out.println("2: t1 locked r2");
 					}
+					System.out.println("Thread 1 is done");
 				}
 			}
 		}.start();
@@ -39,6 +40,7 @@ public class DeadLockDemo {
 					synchronized (r1) {
 						System.out.println("4: t2 locked r1");
 					}
+					System.out.println("Thread 2 is done");
 				}
 			}
 		}.start();

@@ -38,6 +38,8 @@ public class TransactionDemo {
 				System.out.println(rs.getString("id") + ", " + rs.getString("name") + ", " + rs.getString("birthday"));
 			}
 
+			connection.setAutoCommit(true);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

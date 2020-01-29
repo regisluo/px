@@ -10,5 +10,6 @@ public class ThutdownHookDemo {
 			e.printStackTrace();
 		}
 		System.exit(0);
+		System.out.println("main is finish");
 	}
 }

@@ -25,17 +25,17 @@ public class FirstJDBCDemo {
 			//step 3: Create Statement
 			st = connection.createStatement();
 
-			//step 4: executing query
-			String customerTable = "create table customer(id varchar(11) NOT NULL, name varchar(50), birthday varchar(11))";
-			st.executeUpdate(customerTable);
-			String insert1 = "insert into customer values('1','Jim','1990-11-02')";
-			String insert2 = "insert into customer values('2','Tim','1992-09-01')";
-			st.executeUpdate(insert1);
-			st.executeUpdate(insert2);
+			//step 4: executing query / update
+			String sqlCreateCustomer = "create table customer(id varchar(11) NOT NULL, name varchar(50), birthday varchar(11))";
+			st.executeUpdate(sqlCreateCustomer);
+			String sqlInsertCustomer1 = "insert into customer values('1','Jim','1990-11-02')";
+			String sqlInsertCustomer2 = "insert into customer values('2','Tim','1992-09-01')";
+			st.executeUpdate(sqlInsertCustomer1);
+			st.executeUpdate(sqlInsertCustomer2);
 
-			String s = "update customer set name=? where id=?";
-			PreparedStatement pst = connection.prepareStatement(s);
-			pst.setString(1, "haha");
+			String sqlUpdateCustomer = "update customer set name=? where id=?";
+			PreparedStatement pst = connection.prepareStatement(sqlUpdateCustomer);
+			pst.setString(1, "James");
 			pst.setString(2, "1");
 			pst.executeUpdate();
 
@@ -49,6 +49,7 @@ public class FirstJDBCDemo {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			// step 6: Close resources
 			ResourceUtil.close(rs, st, connection);
 		}
 	}
